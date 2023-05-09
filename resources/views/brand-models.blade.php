@@ -71,7 +71,7 @@
         </nav>
 
     <!-- Despre model -->
-    <div class="container" style="margin-top: 2%; margin-bottom: 2%;">
+    <div class="container" style="margin-top: 4%; margin-bottom: 2%;">
         <div class="row">
           <nav class="navbar navbar-expand-lg navbar-light bg-dark text-light">
             <div class="container-fluid pt-3">
@@ -89,29 +89,7 @@
 
     <!-- Continut -->
 
-
-    <!-- <div class="container">
-      <div class="row justify-content-center">
-          <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="width:100%">
-            @for ($i = 0; $i < count($models); $i += 2)
-                <div class="col-xl-6 pt-3 coloana text-center d-flex flex-column align-items-center">
-                    @for ($j = $i; $j < min($i + 2, count($models)); $j++)
-                        <a href="{{$models[$j]->brand_id}}/{{$models[$j]->model}}" style="color:white;">
-                            <img src="{{URL($models[$j]->image)}}" alt="{{$models[$j]->model}}" class="img-fluid pt-5 models_img">
-                            <br>
-                            <span>{{$models[$j]->model}}</span>
-                        </a>
-                    @endfor
-                </div>
-            @endfor
-          </nav>
-      </div>
-    </div> -->
-
-
-    <!-- varianata doi -->
-
-    <div class="container">
+    <div class="container modelsBlock">
       <div class="row justify-content-center">
         <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="width:100%">
           @if (count($models) > 2)
@@ -126,6 +104,21 @@
                 @endfor
               </div>
             @endfor
+          @elseif (count($models) == 2)
+            <div class="col-xl-6 pt-3 coloana text-center d-flex flex-column align-items-center">
+              <a href="{{$models[0]->brand_id}}/{{$models[0]->model}}" style="color:white;">
+                <img src="{{URL($models[0]->image)}}" alt="{{$models[0]->model}}" class="img-fluid pt-5 models_img">
+                <br>
+                <span>{{$models[0]->model}}</span>
+              </a>
+            </div>
+            <div class="col-xl-6 pt-3 coloana text-center d-flex flex-column align-items-center">
+              <a href="{{$models[1]->brand_id}}/{{$models[1]->model}}" style="color:white;">
+                <img src="{{URL($models[1]->image)}}" alt="{{$models[1]->model}}" class="img-fluid pt-5 models_img">
+                <br>
+                <span>{{$models[1]->model}}</span>
+              </a>
+            </div>
           @else
             <div class="col-12 pt-3 coloana text-center d-flex flex-column align-items-center">
               @foreach ($models as $model)
@@ -140,17 +133,8 @@
         </nav>
       </div>
     </div>
+
     
-
-
-
-
-
-
-
-
-
-
 <!-- Footer -->
 
 <footer class="bg-dark text-center text-white mt-4" style="width:100%;">
@@ -231,5 +215,10 @@
   margin-left: auto;
   margin-right: auto;
   width: 90%;
+  }
+
+  .modelsBlock {
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
 </style>

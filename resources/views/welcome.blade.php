@@ -73,23 +73,19 @@
 
         <!-- Continut -->
         <div class="container logoArea">
-            <div class="row">
-                <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-                <div class="container-fluid logoArea">
-                    <div class="col-x2 pt-3">
+            <div class="row justify-content-center">
+                <nav class="navbar navbar-expand-lg navbar-light bg-dark navLogo"   >
+                    <div class="col-x2 pt-3 coloana text-center align-items-center">
                         @foreach($logo as $logos)
-                    
                             <a href="/{{$logos->id}}">
                                 <img class="img-fluid logo" src="{{URL($logos->path)}}" alt="{{ $logos->manufacturer }}" width="100" height="100">
                             </a>
-                        
                         @endforeach
                     </div>
-                </div>
                 </nav>
             </div>
-            </div>
         </div>
+        
 
         <!-- Footer -->
     
@@ -168,6 +164,13 @@
     </html>
 
     <style>
+        @media (max-width: 767px) {
+        .navLogo {
+            width: 90%;
+        }
+    }
+
+
         .logoArea {
             margin-top: 5%;
             margin-bottom: 5%;
