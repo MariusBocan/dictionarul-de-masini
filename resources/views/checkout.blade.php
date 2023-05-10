@@ -4,9 +4,9 @@
             Checkout
         </h2>
     </x-slot>
-    
-        <h2> Delivery info </h2>   
-    <form method="POST" action="{{  route('checkout.store') }}" class="checkout">
+    <div class="add-customer">
+        <h2 style="text-align:center; font-size: 25px;">Completeaza datele de livrare</h2>
+        <form method="POST" action="{{ route('customer') }}">
             @csrf
 
             <!-- Firstname -->
@@ -22,12 +22,7 @@
                 <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname" />
                 <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
             </div>
-            <!-- Email -->
-            <div class="mt-4">
-                <x-input-label for="email" :value="__('Email')" />
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-            </div>
+
             <!-- Phone -->
             <div class="mt-4">
                 <x-input-label for="phone" :value="__('Numar de telefon')" />
@@ -35,60 +30,62 @@
                 <x-input-error :messages="$errors->get('phone')" class="mt-2" />
             </div>
 
+            <!-- Email -->
+            <div class="mt-4">
+                <x-input-label for="email" :value="__('Email')" />
+                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            </div>
+
+            <!-- Country -->
+            <div class="mt-4">
+                <x-input-label for="country" :value="__('Tara')" />
+                <x-text-input id="country" class="block mt-1 w-full" type="text" name="country" :value="old('country')" required autofocus autocomplete="country" />
+                <x-input-error :messages="$errors->get('country')" class="mt-2" />
+            </div>
+
+            <!-- City -->
+            <div class="mt-4">
+                <x-input-label for="city" :value="__('Oras')" />
+                <x-text-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required autofocus autocomplete="city" />
+                <x-input-error :messages="$errors->get('city')" class="mt-2" />
+            </div>
+
             <!-- Address -->
             <div class="mt-4">
-                <x-input-label for="address" :value="__('Adresa de livrare completa')" />
+                <x-input-label for="address" :value="__('Adresa completa')" />
                 <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus autocomplete="address" />
                 <x-input-error :messages="$errors->get('address')" class="mt-2" />
             </div>
 
             <!-- Payment -->
             <div class="mt-4">
-                <x-input-label for="paymnet" :value="__('Metoda de plata')" />
-                <input type="radio" id="ramburs" name="payment" value="ramburs">
-                <label for="ramburs">Ramburs la livrare</label><br>
-                
-                <input type="radio" id="card" name="payment" value="card">
-                <label for="card">Card la livrare</label><br>
+                <x-input-label for="-" :value="__('Metoda de plata')" />
+                <input type="radio" name="ramburs" value="ramburs" checked>
+                <label for="ramburs">Ramburs la livrare</label> <br>
+                <input type="radio" name="card" value="card" disabled>
+                <label for="card">Card <span style="color:red;"> - Momentan, plata cu cardul nu este disponibila. Ne cerem scuze pentru inconvenienta creata.</span></label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <x-primary-button class="ml-4">
-                    {{ __('Order now') }}
+                    {{ __('Comanda') }}
                 </x-primary-button>
             </div>
         </form>
-        <div class="button-container d-flex justify-content-end">
-            <a href="/cart">
-                <button type="button" class="btn btn-danger cancel-product">Cancel</button>
-            </a>
-        </div>
     </div>
 </x-app-layout>
 
 <style>
-    .checkout {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 80%;
-    }
-
-    .add-product {
-        width: 80%;
+    .add-customer {
+        width: 50%;
         margin: auto;
         margin-top: 20px;
     }
     .cancel-product {
         background-color: red;
     }
-
     .button-container {
-        width: 80%;
         margin: auto;
-    }
-
-    .continue-shopping {
-        background-color: blue;
     }
 </style>

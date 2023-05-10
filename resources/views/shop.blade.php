@@ -5,6 +5,13 @@
         </h2>
     </x-slot>
 
+    @if(session('success'))
+        <div class="alert alert-success" style="text-align:center;">
+            {{ session('success') }}
+        </div>
+    @endif
+
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <h1 style="text-align:center; font-size: 35px;">Categorii</h1>
@@ -24,7 +31,7 @@
                                 </a>
                             </div>
                             <div class="card-body text-center">
-                                <h4 class="card-title">{{ $category->category }}</h4>
+                                <h4 class="card-title">{{ ucfirst($category->category) }}</h4>
                                 <p class="text-muted">Incepand de la {{ $category->starting_price }} RON</p>
                                 <a class="btn btn-outline-primary btn-sm" href="shop/{{$category->category}}" data-abc="true">Vezi produsele</a>
                             </div>

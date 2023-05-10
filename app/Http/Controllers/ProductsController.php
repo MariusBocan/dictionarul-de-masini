@@ -51,6 +51,7 @@ class ProductsController extends Controller
         $category = Categories::where('category', $categoryName)->first();
         
          $products = $category->products;
+
            return view('products', ['product_id'=>$products]);
      }
 }

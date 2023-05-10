@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ModelsController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,15 +63,20 @@ Route::get('/increase-quantity-from-cart/{productId}', [CartController::class, '
 
 Route::get('/decrease-quantity-from-cart/{productId}', [CartController::class, 'decreaseQuantity']);
 
+// profile
+Route::get('/profil', function() {return view('profile');});
+Route::post('/profil', [CustomerController::class, 'store'])->name('customer');
+
 // checkout
-Route::get('/cart/checkout', [CheckoutController::class, 'index'])->name('checkout');
-Route::post('/cart/checkout', [App\Http\Controllers\CheckoutController::class, 'store'])->name('checkout.store');
+Route::get('/cart/checkout', function() {return view('checkout');});
+// Route::get('/cart/checkout', [CustomerController::class, 'index'])->name('checkout');
+Route::post('/cart/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 
-
+// plasarea comenzii
+Route::get('/create-order', [OrderController::class, 'store']);
 
 // modele
 Route::get('/{brand_id}', [ModelsController::class, 'indexx'])->name('models.indexx');
-
 
 
 

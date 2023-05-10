@@ -41,7 +41,7 @@
                           <!-- Data -->
                           <p><strong>{{$cart->product->brand}} {{$cart->product->name}}</strong></p>
                           <p>{{$cart->product->category}}</p>
-                          <p>Pret/Bucata{{$cart->product->price}}</p>
+                          <p>Pret/Bucata: {{$cart->product->price}} RON</p>
                           <a href="/delete-from-cart/{{$cart->id}}">
                             <button class="btn btn-danger">
                                 x

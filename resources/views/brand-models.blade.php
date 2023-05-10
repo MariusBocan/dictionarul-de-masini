@@ -218,7 +218,7 @@
   }
 
   .modelsBlock {
-    margin-top: 5%;
+    margin-top: 1%;
     margin-bottom: 5%;
   }
 </style>

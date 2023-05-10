@@ -200,7 +200,6 @@
 
 <script>
 $(document).ready(function () {
-    $("body").css("background-color", "azure");
     $("h1").click(function () {
     $(this).hide(); 
 });
