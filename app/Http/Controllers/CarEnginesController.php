@@ -49,10 +49,19 @@ class CarEnginesController extends Controller
      * Listeaza categoriile
      */
 
-    public function index(Request $request, string $modelId) {
-        $model = ModelsModel::where('id', $modelId)->first();
-        $engines = $model->engines;
 
-        return view('engines', ['engines'=>$engines]);
-    }
+
+// public function showEngines($id)
+// {
+//     return $this->index($id);
+// }
+
+public function showEngines(Request $request, string $brandId, string $modelId) {
+    $models = ModelsModel::where('id', $modelId)->first();
+    
+     $engines = $models->engines;
+
+       return view('engines', ['engines'=>$engines]);
+ }
+
 }

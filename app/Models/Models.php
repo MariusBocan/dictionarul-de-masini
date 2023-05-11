@@ -27,7 +27,11 @@ class Models extends Model
 
     use HasFactory;
     function brand()
-{
+    {
     return $this->belongsTo('App\Models\Logo', 'brand_id');
-}
+    }
+    public function engines()
+    {
+        return $this->hasMany('App\Models\Engine');
+    }
 }

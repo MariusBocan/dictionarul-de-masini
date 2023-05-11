@@ -96,7 +96,7 @@
             @for ($i = 0; $i < count($models); $i += 2)
               <div class="col-xl-6 pt-3 coloana text-center d-flex flex-column align-items-center">
                 @for ($j = $i; $j < min($i + 2, count($models)); $j++)
-                  <a href="{{$models[$j]->brand_id}}/{{$models[$j]->model}}" style="color:white;">
+                  <a href="{{$models[$j]->brand_id}}/{{$models[$j]->id}}" style="color:white;">
                     <img src="{{URL($models[$j]->image)}}" alt="{{$models[$j]->model}}" class="img-fluid pt-5 models_img">
                     <br>
                     <span>{{$models[$j]->model}}</span>
@@ -106,14 +106,14 @@
             @endfor
           @elseif (count($models) == 2)
             <div class="col-xl-6 pt-3 coloana text-center d-flex flex-column align-items-center">
-              <a href="{{$models[0]->brand_id}}/{{$models[0]->model}}" style="color:white;">
+              <a href="{{$models[0]->brand_id}}/{{$models[0]->id}}" style="color:white;">
                 <img src="{{URL($models[0]->image)}}" alt="{{$models[0]->model}}" class="img-fluid pt-5 models_img">
                 <br>
                 <span>{{$models[0]->model}}</span>
               </a>
             </div>
             <div class="col-xl-6 pt-3 coloana text-center d-flex flex-column align-items-center">
-              <a href="{{$models[1]->brand_id}}/{{$models[1]->model}}" style="color:white;">
+              <a href="{{$models[1]->brand_id}}/{{$models[1]->id}}" style="color:white;">
                 <img src="{{URL($models[1]->image)}}" alt="{{$models[1]->model}}" class="img-fluid pt-5 models_img">
                 <br>
                 <span>{{$models[1]->model}}</span>
@@ -122,7 +122,7 @@
           @else
             <div class="col-12 pt-3 coloana text-center d-flex flex-column align-items-center">
               @foreach ($models as $model)
-                <a href="{{$model->brand_id}}/{{$model->model}}" style="color:white;">
+                <a href="{{$model->brand_id}}/{{$model->id}}" style="color:white;">
                   <img src="{{URL($model->image)}}" alt="{{$model->model}}" class="img-fluid pt-5 models_img">
                   <br>
                   <span>{{$model->model}}</span>

@@ -30,8 +30,13 @@ class Engine extends Model
     ];
 
     use HasFactory;
-    function model()
-{
-    return $this->belongsTo('App\Models\Models', 'id');
-}
+    public function model()
+    {
+        return $this->hasMany('App\Models\Models', 'model_id');
+    }
+
+    public function specs()
+    {
+        return $this->hasMany('App\Models\Spec');
+    }
 }

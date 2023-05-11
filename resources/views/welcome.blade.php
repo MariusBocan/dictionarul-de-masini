@@ -77,7 +77,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-dark navLogo"   >
                     <div class="col-x2 pt-3 coloana text-center align-items-center">
                         @foreach($logo as $logos)
-                            <a href="/{{$logos->id}}">
+                            <a href="modele/{{$logos->id}}">
                                 <img class="img-fluid logo" src="{{URL($logos->path)}}" alt="{{ $logos->manufacturer }}" width="100" height="100">
                             </a>
                         @endforeach

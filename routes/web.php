@@ -9,6 +9,7 @@ use App\Http\Controllers\ModelsController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CarEnginesController;
+use App\Http\Controllers\SpecsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/login', [ProfileController::class, 'login'])->name('profile.login');
 Route::get('/register', [ProfileController::class, 'register'])->name('profile.register');
 
+// parsarea categoriilor
+Route::get('/shop', [CategoriesController::class, 'index'])->middleware(['auth', 'verified'])->name('shop.index');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -45,16 +49,18 @@ Route::get('/dashboard', function () {
 Route::get('/', [LogoController::class, 'index'])->name('home.index');
 
 // parsarea modele
-Route::get('/{brand_id}', [ModelsController::class, 'indexx'])->name('models.indexx');
+Route::get('/modele/{brand_id}', [ModelsController::class, 'indexx'])->name('models.indexx');
 
 // parsarea motorizarilor
-Route::get('/{brand_id}/{id}', [CarEnginesController::class, 'index'])->name('index');
+ Route::get('modele/{brand_id}/{id}', [CarEnginesController::class, 'index'])->name('index');
+ Route::get('modele/{brand_id}/{id}', [CarEnginesController::class, 'showEngines'])->name('show.engines');
+
+ // parsarea specificatiilor
+ Route::get('modele/{brand_id}/{id}', [SpecsController::class, 'index'])->name('index');
 
 // calculator parcare
 Route::get('/parcare', function () {return view('parking');});
 
-// parsarea categoriilor
-Route::get('/shop', [CategoriesController::class, 'index'])->name('shop.index')->middleware(['auth', 'verified']);
 
 // // accesarea categoriei
 Route::get('/shop/{category}', [ProductsController::class, 'indexx'])->name('show-products');
