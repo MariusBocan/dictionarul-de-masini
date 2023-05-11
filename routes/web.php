@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ModelsController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CarEnginesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,12 @@ Route::get('/dashboard', function () {
 // parsarea logo-urilor
 Route::get('/', [LogoController::class, 'index'])->name('home.index');
 
+// parsarea modele
+Route::get('/{brand_id}', [ModelsController::class, 'indexx'])->name('models.indexx');
+
+// parsarea motorizarilor
+Route::get('/{brand_id}/{id}', [CarEnginesController::class, 'index'])->name('index');
+
 // calculator parcare
 Route::get('/parcare', function () {return view('parking');});
 
@@ -69,14 +76,11 @@ Route::post('/profil', [CustomerController::class, 'store'])->name('customer');
 
 // checkout
 Route::get('/cart/checkout', function() {return view('checkout');});
-// Route::get('/cart/checkout', [CustomerController::class, 'index'])->name('checkout');
 Route::post('/cart/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 
 // plasarea comenzii
 Route::get('/create-order', [OrderController::class, 'store']);
 
-// modele
-Route::get('/{brand_id}', [ModelsController::class, 'indexx'])->name('models.indexx');
 
 
 
