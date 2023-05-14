@@ -97,12 +97,6 @@ class SpecsController extends Controller
 //     return $this->index($id);
 // }
 
-public function index(Request $request, string $brandId, string $modelId) {
-    $models = ModelsModel::where('id', $modelId)->first();
-    
-     $engines = $models->engines;
 
-       return view('engines', ['engines'=>$engines]);
- }
 
 }

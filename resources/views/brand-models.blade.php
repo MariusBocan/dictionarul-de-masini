@@ -15,7 +15,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
         <!-- Styles -->
@@ -25,55 +26,50 @@
                 background-image: linear-gradient(45deg, hsl(0deg, 43%, 10%) 0%, hsl(3deg, 56%, 14%) 20%, hsl(3deg, 64%, 17%) 40%, hsl(2deg, 70%, 21%) 60%, hsl(1deg, 75%, 24%) 80%, hsl(0deg, 79%, 28%) 100%);         
             }
 
-            nav {
+            nav, footer {
                 background-color: #333333;
             }
         </style>
     </head>
     <body class="antialiased">
         <!-- Header -->
-        <div class="m-4">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <div class="container-fluid">
-            <a href="/" class="navbar-brand">
-                <img src="/logo.png" height="50" alt="Dictionarul-de-masini" />
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <nav class="navbar navbar-expand-lg navbar-light m-4">
+          <div class="container-fluid">
+              <a href="/" class="navbar-brand">
+                  <img src="/logo.png" height="50" alt="Dictionarul-de-masini" />
+              </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                <a href="/parcare" class="nav-item nav-link text-light"
-                    >Calculator parcare Bucuresti</a
-                >
-                <a href="#" class="nav-item nav-link text-light"
-                    >Dictionar piese auto</a
-                >
-                <a href="/shop" class="nav-item nav-link text-light"
-                    >Magazin</a
-                >
-                </div>
-                <div class="navbar-nav text-right ml-sm-auto">
-                @if (Route::has('login'))
-                        
-                            @auth
-                                <a href="{{ url('/dashboard') }}" class="nav-item nav-link text-light">Profil</a>
-                            @else
-                                <a href="{{ route('login') }}" class="nav-item nav-link text-light">Login</a>
-
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="nav-item nav-link text-light">Register</a>
-                                @endif
-                            @endauth
-                    @endif
-                </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <a href="/parcare" class="nav-item nav-link text-light"
+                  >Calculator parcare Bucuresti</a>
+                  <a href="#" class="nav-item nav-link text-light"
+                      >Dictionar piese auto</a>
+                  <a href="/shop" class="nav-item nav-link text-light"
+                      >Magazin</a>
+              </ul>
+              @if (Route::has('login'))
+                
+                    @auth
+                        <a href="{{ url('/profil') }}" class="nav-item nav-link text-light">Profil</a>
+                    @else
+                        <a href="{{ route('login') }}" class="nav-item nav-link text-light">Login</a>
+  
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="nav-item nav-link text-light">Register</a>
+                        @endif
+                    @endauth
+              @endif
             </div>
+          </div>
         </nav>
 
     <!-- Despre model -->
-    <div class="container" style="margin-top: 4%; margin-bottom: 2%;">
+    <div class="container navLogo" style="margin-top: 4%; margin-bottom: 2%;">
         <div class="row">
-          <nav class="navbar navbar-expand-lg navbar-light bg-dark text-light">
+          <nav class="navbar navbar-expand-lg navbar-light  text-light">
             <div class="container-fluid pt-3">
                 <p>
                   @php
@@ -89,9 +85,9 @@
 
     <!-- Continut -->
 
-    <div class="container modelsBlock">
+    <div class="container modelsBlock navLogo">
       <div class="row justify-content-center">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="width:100%">
+        <nav class="navbar navbar-expand-lg navbar-light" style="width:100%">
           @if (count($models) > 2)
             @for ($i = 0; $i < count($models); $i += 2)
               <div class="col-xl-6 pt-3 coloana text-center d-flex flex-column align-items-center">
@@ -137,7 +133,7 @@
     
 <!-- Footer -->
 
-<footer class="bg-dark text-center text-white mt-4" style="width:100%;">
+<footer class=" text-center text-white m-4">
 <!-- Grid container -->
 <div class="container p-4">
   <!-- Section: Form -->
@@ -210,6 +206,10 @@
 </html>
 
 <style>
+  nav, footer {
+            background-color: #343A40;
+  }
+
   .models_img{
   display: block;
   margin-left: auto;
@@ -221,4 +221,10 @@
     margin-top: 1%;
     margin-bottom: 5%;
   }
+
+  @media (max-width: 767px) {
+        .navLogo {
+            width: 90%;
+        }
+    }
 </style>

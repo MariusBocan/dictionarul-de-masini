@@ -74,6 +74,93 @@
             </div>
         </form>
     </div>
+
+    {{-- Footer --}}
+    <footer
+            class="text-center text-lg-start text-white mt-5"
+            style="background-color: #5f5f5f"
+            >
+      <section
+               class="d-flex justify-content-between p-4"
+               style="background-color: #2c2c31"
+               >
+        <div class="me-5">
+          <span>Regasiti mai jos link-uri si detalii:</span>
+        </div>
+      </section>
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold">www.dictionarul-de-masini.ro</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: blue; height: 2px"
+                  />
+              <p>
+                Produsele din cadrul magazinul dictionarul-de-masini.ro sunt vandute in parteneriat cu brand-urile prezente. Toate drepturile rezervate.
+              </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold">Categorii</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: blue; height: 2px"
+                  />
+              <p>
+                <a href="#!" class="text-white">Jante</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Suspensii</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Accesorii auto</a>
+              </p>
+            </div>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold">Link-uri utile</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: blue; height: 2px"
+                  />
+              <p>
+                <a href="#!" class="text-white">Termeni si condtii</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Politica datelor cu caracter personal</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Politica de retur si garantie</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Despre acest proiect</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 class="text-uppercase fw-bold">Contact</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: blue; height: 2px"
+                  />
+              <p><i class="fas fa-home mr-3"></i> Bucuresti, Aleea Florilor, Nr. 12, Sector 3</p>
+            <p><i class="fas fa-envelope mr-3"></i> dictionarul-de-masini-magazin@gmail.com</p>
+              <p><i class="fas fa-phone mr-3"></i> +40712345678</p>
+              <p><i class="fas fa-print mr-3"></i> +40787654321</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div
+           class="text-center p-3"
+           style="background-color: rgba(0, 0, 0, 0.2)"
+           >
+        © 2023 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/"
+           >MDBootstrap.com</a
+          >
+      </div>
+    </footer>
 </x-app-layout>
 
 <style>
