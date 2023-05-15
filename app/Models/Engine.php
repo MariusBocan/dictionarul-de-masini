@@ -37,6 +37,6 @@ class Engine extends Model
 
     public function specs()
     {
-        return $this->hasMany('App\Models\Spec');
+        return $this->hasMany(Spec::class);
     }
 }

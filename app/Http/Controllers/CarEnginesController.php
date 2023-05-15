@@ -64,4 +64,9 @@ public function showEngines(Request $request, string $brandId, string $modelId) 
        return view('engines', ['engines'=>$engines]);
  }
 
+ public function showSpecs(Engine $engine)
+    {
+        $specs = $engine->specs;
+        return view('specs', compact('specs'));
+    }
 }

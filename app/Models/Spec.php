@@ -10,7 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Engine extends Model
+class Spec extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -50,8 +50,13 @@ class Engine extends Model
     ];
 
     use HasFactory;
-    public function model()
+    // public function spec()
+    // {
+    //     return $this->belongsTo('App\Models\Engine', 'id');
+    // }
+
+    public function engine()
     {
-        return $this->hasMany('App\Models\Engine', 'models_id');
+        return $this->belongsTo(Engine::class);
     }
 }

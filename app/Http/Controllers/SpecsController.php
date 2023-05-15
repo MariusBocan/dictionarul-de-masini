@@ -51,7 +51,7 @@ class SpecsController extends Controller
             'fuel_comb' => ['required', 'string', 'max:500']
         ]);
 
-        $specs = Engine::create([
+        $specs = Spec::create([
             'engine_id' => $specs->engine_id,
             'year' => $specs->year,
             'brand' => $specs->brand,
@@ -80,22 +80,27 @@ class SpecsController extends Controller
             'acceleration' => $specs->acceleration,
             'fuel_urban' => $specs->fuel_urban,
             'fuel_extra' => $specs->fuel_extra,
-            'fuel_comb' => $specs->fuel_comb,
+            'fuel_comb' => $specs->fuel_comb
         ]);
 
         return redirect('/specs');
     }
 
-    /**
-     * Listeaza categoriile
-     */
 
 
-
-// public function showEngines($id)
-// {
-//     return $this->index($id);
-// }
+    public function showSpecs($id)
+    {
+        $engine = Engine::findOrFail($id);
+        $specs = $engine->specs;
+        $aboutModel = $engine->about_model;
+        $carousel1 = $engine->carousel1;
+        $carousel2 = $engine->carousel2;
+        $carousel3 = $engine->carousel3;
+    
+        return view('specs', compact('engine', 'specs', 'aboutModel', 'carousel1', 'carousel2', 'carousel3'));
+    }
+    
+    
 
 
 

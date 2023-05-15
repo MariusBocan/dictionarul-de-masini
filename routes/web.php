@@ -52,10 +52,11 @@ Route::get('/', [LogoController::class, 'index'])->name('home.index');
 Route::get('/modele/{brand_id}', [ModelsController::class, 'indexx'])->name('models.indexx');
 
 // parsarea motorizarilor
- Route::get('modele/{brand}/{id}', [CarEnginesController::class, 'index'])->name('index');
  Route::get('modele/{brand}/{id}', [CarEnginesController::class, 'showEngines'])->name('show.engines');
 
  // parsarea specificatiilor
+Route::get('/engine/{id}', [SpecsController::class, 'showSpecs'])->name('engine.specs');
+// Route::get('/engine/{id}', [CarEnginesController::class, 'showSpecs'])->name('engine.specs');
  
 // calculator parcare
 Route::get('/parcare', function () {return view('parking');});

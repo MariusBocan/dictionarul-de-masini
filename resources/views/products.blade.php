@@ -123,9 +123,7 @@
            style="background-color: rgba(0, 0, 0, 0.2)"
            >
         © 2023 Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/"
-           >MDBootstrap.com</a
-          >
+        <a class="text-white" href="/"><ul>www.dictionarul-de-masini.ro<ul></a>
       </div>
     </footer>
 </x-app-layout>

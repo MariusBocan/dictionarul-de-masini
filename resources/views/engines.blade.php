@@ -135,7 +135,7 @@
                   @foreach($engines as $engine)
                     <tr>
                       <td>
-                        <a href="{{$engine->id}}" style="color:green;">{{$engine->engine}}</a>
+                        <a href="{{ route('engine.specs', $engine->id) }}" style="color:green;">{{$engine->engine}}</a>
                       </td>
                       <td>{{$engine->fuel}}</td>
                       <td>{{$engine->year}}</td>
