@@ -46,9 +46,6 @@
                     <a href="/parcare" class="nav-item nav-link text-light"
                         >Calculator parcare Bucuresti</a
                     >
-                    <a href="#" class="nav-item nav-link text-light"
-                        >Dictionar piese auto</a
-                    >
                     <a href="/shop" class="nav-item nav-link text-light"
                         >Magazin</a
                     >

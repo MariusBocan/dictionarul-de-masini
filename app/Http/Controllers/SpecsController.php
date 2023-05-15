@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Http\Response;
 use App\Models\Engine;
 use App\Models\Spec;
 use App\Models\Models as ModelsModel;
@@ -89,19 +90,20 @@ class SpecsController extends Controller
 
 
     public function showSpecs($id)
-    {
-        $engine = Engine::findOrFail($id);
-        $specs = $engine->specs;
-        $aboutModel = $engine->about_model;
-        $carousel1 = $engine->carousel1;
-        $carousel2 = $engine->carousel2;
-        $carousel3 = $engine->carousel3;
-    
-        return view('specs', compact('engine', 'specs', 'aboutModel', 'carousel1', 'carousel2', 'carousel3'));
+{
+    $engineCount = Engine::count(); // Get the count of rows in the `engine` table
+
+    if ($id > $engineCount) {
+        abort(Response::HTTP_NOT_FOUND);
     }
-    
-    
 
+    $engine = Engine::findOrFail($id);
+    $specs = $engine->specs;
+    $aboutModel = $engine->about_model;
+    $carousel1 = $engine->carousel1;
+    $carousel2 = $engine->carousel2;
+    $carousel3 = $engine->carousel3;
 
-
+    return view('specs', compact('engine', 'specs', 'aboutModel', 'carousel1', 'carousel2', 'carousel3'));
+}
 }

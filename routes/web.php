@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Response;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\CategoriesController;
@@ -41,6 +42,7 @@ Route::get('/register', [ProfileController::class, 'register'])->name('profile.r
 // parsarea categoriilor
 Route::get('/shop', [CategoriesController::class, 'index'])->middleware(['auth', 'verified'])->name('shop.index');
 
+// dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -56,13 +58,12 @@ Route::get('/modele/{brand_id}', [ModelsController::class, 'indexx'])->name('mod
 
  // parsarea specificatiilor
 Route::get('/engine/{id}', [SpecsController::class, 'showSpecs'])->name('engine.specs');
-// Route::get('/engine/{id}', [CarEnginesController::class, 'showSpecs'])->name('engine.specs');
  
 // calculator parcare
 Route::get('/parcare', function () {return view('parking');});
 
 
-// // accesarea categoriei
+// accesarea categoriei
 Route::get('/shop/{category}', [ProductsController::class, 'indexx'])->name('show-products');
 
 // cos cumparaturi
@@ -86,8 +87,6 @@ Route::post('/cart/checkout', [CheckoutController::class, 'store'])->name('check
 
 // plasarea comenzii
 Route::get('/create-order', [OrderController::class, 'store']);
-
-
 
 
 require __DIR__.'/auth.php';

@@ -2,9 +2,9 @@
     <x-slot name="header">
     </x-slot>
     @if (count($carts) == 0) 
-        <h1 style="text-align:center; margin-top:20px; font-size:2em;"> Nu aveti produse in cos <h1>
-        <div class="d-flex"  style=" margin-top:35px; display:flex; justify-content:center">
-            <a href="/shop">
+        <h1 style="text-align:center; margin-top:20%; font-size:2em;"> Nu aveti produse in cos <h1>
+        <div class="d-flex"  style=" margin-top:35px; display:flex; justify-content:center;">
+            <a href="/shop" style=" margin-bottom: 40%;">
                 <button type="button" class="btn btn-primary continue-shopping">Du-ma la magazin</button>
             </a>
         </div>

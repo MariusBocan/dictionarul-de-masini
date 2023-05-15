@@ -41,15 +41,13 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <a href="/parcare" class="nav-item nav-link text-light"
                     >Calculator parcare Bucuresti</a>
-                    <a href="#" class="nav-item nav-link text-light"
-                        >Dictionar piese auto</a>
                     <a href="/shop" class="nav-item nav-link text-light"
                         >Magazin</a>
                 </ul>
                 @if (Route::has('login'))
                   
                       @auth
-                          <a href="{{ url('/profil') }}" class="nav-item nav-link text-light">Profil</a>
+                          <a href="{{ url('/setari-profil') }}" class="nav-item nav-link text-light">Profil</a>
                       @else
                           <a href="{{ route('login') }}" class="nav-item nav-link text-light">Login</a>
 
@@ -62,14 +60,13 @@
             </div>
           </nav>
     <!-- Despre model -->
-
     <div class="container navLogo" style="margin-top: 4%; margin-bottom: 2%;">
         <div class="row">
           <nav class="navbar navbar-expand-lg navbar-light text-light">
             <div class="container-fluid">
                 <p>
                   @php
-                  $aboutModel = $engine->first()->about_model;
+                  $aboutModel = $engine->about_model;
                   @endphp
                   {{$aboutModel}}
                 </p>
@@ -293,7 +290,6 @@
       </div>
     </div>
 </div>
-
 
     <!-- Footer -->
         

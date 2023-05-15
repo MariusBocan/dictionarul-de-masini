@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Http\Response;
 use App\Models\Engine;
 use App\Models\Models as ModelsModel;
 
@@ -57,6 +58,12 @@ class CarEnginesController extends Controller
 // }
 
 public function showEngines(Request $request, string $brandId, string $modelId) {
+    $engineCount = Engine::count(); // Get the count of rows in the `engine` table
+
+    if ($modelId > $engineCount) {
+        abort(Response::HTTP_NOT_FOUND);
+    }
+
     $models = ModelsModel::where('id', $modelId)->first();
     
      $engines = $models->engines;

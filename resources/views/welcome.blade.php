@@ -41,15 +41,13 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <a href="/parcare" class="nav-item nav-link text-light"
                     >Calculator parcare Bucuresti</a>
-                    <a href="#" class="nav-item nav-link text-light"
-                        >Dictionar piese auto</a>
                     <a href="/shop" class="nav-item nav-link text-light"
                         >Magazin</a>
                 </ul>
                 @if (Route::has('login'))
                   
                       @auth
-                          <a href="{{ url('/profil') }}" class="nav-item nav-link text-light">Profil</a>
+                          <a href="{{ url('/setari-profil') }}" class="nav-item nav-link text-light">Profil</a>
                       @else
                           <a href="{{ route('login') }}" class="nav-item nav-link text-light">Login</a>
 
@@ -61,6 +59,19 @@
               </div>
             </div>
           </nav>
+
+          
+            @if (session('login'))
+            <div class="alert alert-success mt-4" style="text-align: center;">
+                {{ session('login') }}
+            </div>
+            @endif
+
+            @if (session('register'))
+            <div class="alert alert-success mt-4" style="text-align: center;">
+                {{ session('register') }}
+            </div>
+            @endif
 
         <!-- Continut -->
         <div class="container logoArea">
@@ -172,5 +183,6 @@
 
         .logo {
             margin: 0.6%;
+            margin-top: 1%;
         }
     </style>

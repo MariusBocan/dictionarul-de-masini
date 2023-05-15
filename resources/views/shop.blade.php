@@ -11,6 +11,12 @@
         </div>
     @endif
 
+    @if (session('login'))
+    <div class="alert alert-success" style="text-align: center;">
+        {{ session('login') }}
+    </div>
+    @endif
+
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

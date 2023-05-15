@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Http\Response;
 use App\Models\Categories;
 use App\Models\Products;
 use App\Http\Controllers\ProductsController;
+use Illuminate\Support\Facades\Session;
 
 class CategoriesController extends Controller
 {
@@ -46,8 +48,4 @@ class CategoriesController extends Controller
         $categories = Categories::all();
         return view('shop', ['categories'=>$categories]);
     }
-
-    
-
-   
 }
